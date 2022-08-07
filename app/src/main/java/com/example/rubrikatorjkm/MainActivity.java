@@ -37,13 +37,16 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        LatLng Location = new LatLng( 0, 0);
+        LatLng Location = new LatLng( 51.806012, 55.105319);
         map = googleMap;
-        Marker marker = map.addMarker(new MarkerOptions().position(Location).title("Null"));;
+        map.setMinZoomPreference(11.0f);
+        Marker marker = map.addMarker(new MarkerOptions().position(Location).title("Null"));
+        marker.setVisible(false);
+        map.moveCamera(CameraUpdateFactory.newLatLng(Location));
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                marker.remove();
+                map.clear();
                 LatLng Location = new LatLng( 51.819973, 55.100698);
                 Marker marker = map.addMarker(new MarkerOptions().position(Location).title("Burger King!!"));
                 map.moveCamera(CameraUpdateFactory.newLatLng(Location));
@@ -52,8 +55,8 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                marker.remove();
-                LatLng Location = new LatLng( 41.819973, 55.100698);
+                map.clear();
+                LatLng Location = new LatLng( 51.843123, 55.327812);
                 Marker marker = map.addMarker(new MarkerOptions().position(Location).title("Burger King!!"));
                 map.moveCamera(CameraUpdateFactory.newLatLng(Location));
             }
@@ -61,8 +64,8 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                marker.remove();
-                LatLng Location = new LatLng( 31.819973, 55.100698);
+                map.clear();
+                LatLng Location = new LatLng( 51.873123, 55.227812);
                 Marker marker = map.addMarker(new MarkerOptions().position(Location).title("Burger King!!"));
                 map.moveCamera(CameraUpdateFactory.newLatLng(Location));
             }
